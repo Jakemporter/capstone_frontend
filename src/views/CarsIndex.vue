@@ -9,6 +9,8 @@
       <p>Miles: {{ car.miles }}</p>
       <p>Current Bid: {{ car.current_bid }}</p>
       <img v-bind:src="car.images[0][`url`]" v-bind:alt="car.model" />
+      <br>
+      <router-link v-bind:to="`/cars/${car.id}`">More Details on {{car.make}} {{car.model}}</router-link>
     </div>
   </div>
 </template>

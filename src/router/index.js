@@ -2,6 +2,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Home from '../views/Home.vue';
 import CarsIndex from "../views/CarsIndex.vue";
+import CarsShow from "../views/CarsShow.vue";
 
 Vue.use(VueRouter);
 
@@ -19,7 +20,8 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   },
-  { path: "/cars", name: "cars-index", component: CarsIndex}
+  { path: "/cars", name: "cars-index", component: CarsIndex},
+  { path: "/cars/:id", name: "cars-show", component: CarsShow},
 ];
 
 const router = new VueRouter({
