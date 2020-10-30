@@ -2,17 +2,20 @@
   <div class="cars-index">
     <h1>All Cars</h1>
     <div v-for="car in cars">
-      <h4>{{ car.make }}</h4>
-      <p>{{ car.model }}</p>
-      <p>Color: {{ car.color }}</p>
-      <p>Year: {{ car.year }}</p>
-      <p>Miles: {{ car.miles }}</p>
-      <p>Current Bid: {{ car.current_bid }}</p>
-      <img v-bind:src="car.images[0][`url`]" v-bind:alt="car.model" />
-      <br>
-      <router-link v-bind:to="`/cars/${car.id}`">More Details on {{car.make}} {{car.model}}</router-link>
-    </div>
+    <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card h-100">
+          <img class="card-img-top" v-bind:src="car.images[0][`url`]" alt="">
+          <div class="card-body">
+            <h5 class="card-title">{{ car.make }} {{ car.model }}</h5>
+            <p class="card-text">{{ car.description}}</p>
+          </div>
+          <div class="card-footer">
+            <a :href="`/cars/${car.id}`" class="btn btn-primary">Find Out More!</a>
+          </div>
+        </div>
+      </div>
   </div>
+    </div>
 </template>
 
 <script>

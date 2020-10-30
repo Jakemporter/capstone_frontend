@@ -12,7 +12,7 @@
       Description: <input type="text" v-model="newcarDescription" />
       Miles: <input type="text" v-model="newcarMiles" />
       Image Url: <input type="text" v-model="newcarUrl" />
-      Category: <input type="text" v-model="newcarCategory" />
+      Category ID: <input type="text" v-model="newcarcategoryId" />
       <br>
       <input type="submit" value="Create" />
     </form>
@@ -31,7 +31,7 @@ export default {
       newcarDescription: "",
       newcarMiles: "",
       newcarUrl: "",
-      newcarCategory: "",
+      newcarcategoryId: "",
       errors: [],
     };
   },
@@ -46,7 +46,7 @@ export default {
         description: this.newcarDescription,
         miles: this.newcarMiles,
         image_url: this.newcarUrl,
-        category: this.newcarCategory,
+        category_id: this.newcarcategoryId,
       };
       axios
         .post("/api/cars", params)
