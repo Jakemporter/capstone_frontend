@@ -11,8 +11,9 @@
       Year: <input type="text" v-model="newcarYear" />
       Description: <input type="text" v-model="newcarDescription" />
       Miles: <input type="text" v-model="newcarMiles" />
-      User: <input type="text" v-model="newcarUser" />
       Image Url: <input type="text" v-model="newcarUrl" />
+      Category: <input type="text" v-model="newcarCategory" />
+      <br>
       <input type="submit" value="Create" />
     </form>
   </div>
@@ -29,14 +30,14 @@ export default {
       newcarYear: "",
       newcarDescription: "",
       newcarMiles: "",
-      newcarUser: "",
       newcarUrl: "",
+      newcarCategory: "",
       errors: [],
     };
   },
   created: function() {},
   methods: {
-    createcar: function() {
+    createCar: function() {
       var params = {
         make: this.newcarMake,
         model: this.newcarModel,
@@ -45,6 +46,7 @@ export default {
         description: this.newcarDescription,
         miles: this.newcarMiles,
         image_url: this.newcarUrl,
+        category: this.newcarCategory,
       };
       axios
         .post("/api/cars", params)

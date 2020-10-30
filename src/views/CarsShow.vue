@@ -7,10 +7,18 @@
     <p>Miles: {{car.miles }}</p>
     <p>Description: {{ car.description }}</p>
     <p>Current Bid: {{ car.current_bid }}</p>
-    <p>Categories: {{ car.categories[0]["name"] }}</p>
-    <p>Bids: {{ car.bids[0]["bid"] }}</p>
-    <p>Comments: {{ car.comments[0]["comment"] }} User: {{car.comments[0]["user"]}}</p>
-    <img v-bind:src="car.images[0][`url`]" v-bind:alt="car.model" />
+    <div v-for="category in car.categories">
+    <p>Categories: {{ category["name"] }}</p>
+    </div>
+    <div v-for="bid in car.bids">
+    <p>Bids: {{ bid["bid"] }}</p>
+    </div>
+    <div v-for="comment in car.comments">
+    <p>Comments: {{ comment["comment"] }} User: {{comment["user"]}}</p>
+    </div>
+    <div v-for="image in car.images">
+    <img v-bind:src="image[`url`]" v-bind:alt="car.model" />
+    </div>
     <br>
     <router-link to="/cars">Back to all cars</router-link>
   </div>
