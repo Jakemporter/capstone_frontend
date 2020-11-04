@@ -24,6 +24,8 @@
     <router-link v-bind:to="`/cars/${car.id}/edit`">Edit car</router-link>
     <br>
     <router-link to="/cars">Back to all cars</router-link>
+    <br>
+    <button v-on:click="destroyCar(car)">Destroy car</button>
   </div>
 </template>
 
@@ -41,6 +43,13 @@ export default {
       this.car = response.data;
     });
   },
-  methods: {},
+  methods: {
+    destroyCar: function(car) {
+      axios.delete("/api/cars/" + car.id).then(response => {
+        console.log("cars destroy", response);
+        this.$router.push("/cars");
+      });
+    },
+  },
 };
 </script>
