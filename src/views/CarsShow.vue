@@ -21,9 +21,9 @@
     <br>
     </div>
     <br>
-    <button v-bind:to="`/cars/${car.id}/edit`">Edit car</button>
+    <router-link v-bind:to="`/cars/${car.id}/edit`">Edit car</router-link>
     <br>
-    <button to="/cars">Back to all cars</button>
+    <router-link to="/cars">Back to all cars</router-link>
   </div>
 </template>
 
