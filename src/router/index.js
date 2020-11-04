@@ -4,6 +4,7 @@ import Home from '../views/Home.vue';
 import CarsIndex from "../views/CarsIndex.vue";
 import CarsShow from "../views/CarsShow.vue";
 import CarsNew from "../views/CarsNew.vue";
+import CarsEdit from "../views/CarsEdit.vue";
 import Signup from "../views/Signup.vue";
 import Login from "../views/Login.vue";
 import Logout from "../views/Logout.vue";
@@ -29,7 +30,8 @@ const routes = [
   { path: "/cars/:id", name: "cars-show", component: CarsShow},
   { path: "/signup", name: "signup", component: Signup },
   { path: "/login", name: "login", component: Login },
-  { path: "/logout", name: "logout", component: Logout }
+  { path: "/logout", name: "logout", component: Logout },
+  { path: "/cars/:id/edit", name: "cars-edit", component: CarsEdit},
 ];
 
 const router = new VueRouter({
