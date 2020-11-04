@@ -18,6 +18,13 @@
     </div>
 </template>
 
+<style>
+  img {
+    max-height: 200px;
+    max-width: 200;
+  }
+</style>
+
 <script>
 import axios from "axios";
 export default {

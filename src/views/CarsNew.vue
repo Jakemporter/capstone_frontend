@@ -5,14 +5,38 @@
       <ul>
         <li v-for="error in errors">{{ error }}</li>
       </ul>
-      Make: <input type="text" v-model="newcarMake" />
-      Model: <input type="text" v-model="newcarModel" />
-      Color: <input type="text" v-model="newcarColor" />
-      Year: <input type="text" v-model="newcarYear" />
-      Description: <input type="text" v-model="newcarDescription" />
-      Miles: <input type="text" v-model="newcarMiles" />
-      Image Url: <input type="text" v-model="newcarUrl" />
-      Category ID: <input type="text" v-model="newcarcategoryId" />
+      <div class="form-group">
+        <label>Make:</label> 
+        <input type="text" class="form-control" v-model="newcarMake">
+      </div>
+      <div class="form-group">
+        <label>Model:</label> 
+        <input type="text" class="form-control" v-model="newcarModel">
+      </div>
+      <div class="form-group">
+        <label>Color:</label> 
+        <input type="text" class="form-control" v-model="newcarColor">
+      </div>
+      <div class="form-group">
+        <label>Year:</label> 
+        <input type="text" class="form-control" v-model="newcarYear">
+      </div>
+      <div class="form-group">
+        <label>Description:</label> 
+        <input type="text" class="form-control" v-model="newcarDescription">
+      </div>
+      <div class="form-group">
+        <label>Miles:</label> 
+        <input type="text" class="form-control" v-model="newcarMiles">
+      </div>
+      <div class="form-group">
+        <label>Image Url:</label> 
+        <input type="text" class="form-control" v-model="newcarUrl">
+      </div>
+      <div class="form-group">
+        <label>Category ID:</label> 
+        <input type="text" class="form-control" v-model="newcarcategoryId">
+      </div>
       <br>
       <input type="submit" value="Create" />
     </form>

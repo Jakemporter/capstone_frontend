@@ -18,6 +18,7 @@
     </div>
     <div v-for="image in car.images">
     <img v-bind:src="image[`url`]" v-bind:alt="car.model" />
+    <br>
     </div>
     <br>
     <router-link to="/cars">Back to all cars</router-link>
