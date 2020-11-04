@@ -16,6 +16,7 @@
     <div v-for="comment in car.comments">
     <p>Comments: {{ comment["comment"] }} User: {{comment["user"]}}</p>
     </div>
+    <p>Images:</p>
     <div v-for="image in car.images">
     <img v-bind:src="image[`url`]" v-bind:alt="car.model" />
     <br>
