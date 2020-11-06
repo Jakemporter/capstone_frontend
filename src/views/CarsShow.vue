@@ -10,11 +10,13 @@
     <div v-for="category in car.categories">
     <p>Categories: {{ category["name"] }}</p>
     </div>
+    <h5>Bids:</h5>
     <div v-for="bid in car.bids">
-    <p>Bids: {{ bid["bid"] }}</p>
+    <p>{{ bid["bid"] }}</p>
     </div>
+    <h5>Comments:</h5>
     <div v-for="comment in car.comments">
-    <p>Comments: {{ comment["comment"] }} User: {{comment["user"]}}</p>
+    <p>{{ comment["comment"] }} | User: {{comment["user"]}}</p>
     </div>
     <p>Images:</p>
     <div v-for="image in car.images">
@@ -25,12 +27,12 @@
         <label>Comment:</label>
         <input type="text" class="form-control" v-model="newComment">
     </div>
-    <button v-on:click="createComment()">Submit Comment</button>
+    <button class="btn btn-primary" v-on:click="createComment()">Submit Comment</button>
     <div class="form-group">
         <label>Create Bid:</label>
         <input type="text" class="form-control" v-model="newBid">
     </div>
-    <button v-on:click="createBid()">Submit Bid</button>
+    <button class="btn btn-primary" v-on:click="createBid()">Submit Bid</button>
     <ul>
         <li v-for="error in errors">{{ error }}</li>
       </ul>
@@ -39,7 +41,7 @@
     <br>
     <router-link class="btn btn-primary" to="/cars">Back to all cars</router-link>
     <br>
-    <button v-on:click="destroyCar(car)">Destroy car</button>
+    <button class="btn btn-primary" v-on:click="destroyCar(car)">Destroy car</button>
   </div>
 </template>
 <script>
