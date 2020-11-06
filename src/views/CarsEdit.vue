@@ -28,6 +28,10 @@
       <div class="form-group">
         <label>Miles:</label> 
         <input type="text" class="form-control" v-model="car.miles">
+      </div>
+      <div class="form-group">
+        <label>Image URL:</label> 
+        <input type="text" class="form-control" v-model="car.images[0]['url']">
       </div> 
       <input type="submit" value="Update" />
     </form>
@@ -39,7 +43,7 @@ import axios from "axios";
 export default {
   data: function() {
     return {
-      car: {},
+      car: {images: [{}]},
       errors: [],
     };
   },
@@ -58,6 +62,7 @@ export default {
         year: car.year,
         miles: car.miles,
         description: car.description,
+        url: car.images[0]["url"]
       };
       axios
         .patch("/api/cars/" + car.id, params)
