@@ -21,11 +21,16 @@
     <img v-bind:src="image[`url`]" v-bind:alt="car.model" />
     <br>
     </div>
+     <div class="form-group">
+        <label>Comment:</label>
+        <input type="text" class="form-control" v-model="newComment">
+    </div>
+    <button v-on:click="createComment()">Submit Comment</button>
     <div class="form-group">
-        <label>Create Bid:</label> 
+        <label>Create Bid:</label>
         <input type="text" class="form-control" v-model="newBid">
     </div>
-    <button v-on:click="createBid()">Submit Bid </button>
+    <button v-on:click="createBid()">Submit Bid</button>
     <ul>
         <li v-for="error in errors">{{ error }}</li>
       </ul>
@@ -37,7 +42,6 @@
     <button v-on:click="destroyCar(car)">Destroy car</button>
   </div>
 </template>
-
 <script>
 import axios from "axios";
 export default {
@@ -46,6 +50,7 @@ export default {
       car: {images: [{}], comments: [{}], bids: [{}], categories: [{}]},
       bid: [],
       newBid: "",
+      newComment: "",
       errors: [],
     };
   },
@@ -77,6 +82,24 @@ export default {
         })
         .catch(error => {
           console.log("Bid Create Error", error.response);
+          this.errors = error.response.data.errors;
+        });
+    },
+    createComment: function() {
+      this.errors = [];
+      var params = {
+        comment: this.newComment,
+        car_id: this.car.id,
+      };
+      axios
+        .post("/api/comments", params)
+        .then(response => {
+          console.log("Comment Create", response);
+          this.car.comments.push(response.data);
+          this.newComment = "";
+        })
+        .catch(error => {
+          console.log("Comment Create Error", error.response);
           this.errors = error.response.data.errors;
         });
     }
