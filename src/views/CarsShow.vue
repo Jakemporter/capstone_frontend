@@ -23,7 +23,7 @@
     <img v-bind:src="image[`url`]" v-bind:alt="car.model" />
     <br>
     </div>
-     <div class="form-group">
+    <div class="form-group">
         <label>Comment:</label>
         <input type="text" class="form-control" v-model="newComment">
     </div>

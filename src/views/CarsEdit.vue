@@ -32,8 +32,13 @@
       <div class="form-group">
         <label>Image URL:</label> 
         <input type="text" class="form-control" v-model="car.images[0]['url']">
-      </div> 
-      <input type="submit" value="Update" />
+      </div>
+      <div class="form-group">
+        <label>New Image URL:</label>
+        <input type="text" class="form-control" v-model="newImage">
+      </div>
+      <button class="btn btn-primary" v-on:click="createImage()">Add Image</button>
+      <input class="btn btn-primary" type="submit" value="Update" />
     </form>
   </div>
 </template>
@@ -44,6 +49,7 @@ export default {
   data: function() {
     return {
       car: {images: [{}]},
+      newImage: "",
       errors: [],
     };
   },
@@ -72,6 +78,24 @@ export default {
         })
         .catch(error => {
           console.log("cars update error", error.response);
+          this.errors = error.response.data.errors;
+        });
+    },
+    createImage: function() {
+      this.errors = [];
+      var params = {
+        url: this.newImage,
+        car_id: this.car.id,
+      };
+      axios
+        .post("/api/images", params)
+        .then(response => {
+          console.log("Image Create", response);
+          this.newImage = "";
+          this.$router.push("/cars" + this.car.id);
+        })
+        .catch(error => {
+          console.log("Image Create Error", error.response);
           this.errors = error.response.data.errors;
         });
     },
