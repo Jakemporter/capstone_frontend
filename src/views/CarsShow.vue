@@ -21,6 +21,14 @@
     <img v-bind:src="image[`url`]" v-bind:alt="car.model" />
     <br>
     </div>
+    <div class="form-group">
+        <label>Create Bid:</label> 
+        <input type="text" class="form-control" v-model="newBid">
+    </div>
+    <button v-on:click="createBid()">Submit Bid </button>
+    <ul>
+        <li v-for="error in errors">{{ error }}</li>
+      </ul>
     <br>
     <router-link class="btn btn-primary" v-bind:to="`/cars/${car.id}/edit`">Edit car</router-link>
     <br>
@@ -36,11 +44,14 @@ export default {
   data: function() {
     return {
       car: {images: [{}], comments: [{}], bids: [{}], categories: [{}]},
+      bid: [],
+      newBid: "",
+      errors: [],
     };
   },
   created: function() {
     axios.get("/api/cars/" + this.$route.params.id).then(response => {
-      console.log("cars show", response);
+      console.log("Cars Show", response);
       this.car = response.data;
     });
   },
@@ -51,6 +62,24 @@ export default {
         this.$router.push("/cars");
       });
     },
+    createBid: function() {
+      this.errors = [];
+      var params = {
+        bid: this.newBid,
+        car_id: this.car.id,
+      };
+      axios
+        .post("/api/bids", params)
+        .then(response => {
+          console.log("Bid Create", response);
+          this.car.bids.push(response.data);
+          this.newBid = "";
+        })
+        .catch(error => {
+          console.log("Bid Create Error", error.response);
+          this.errors = error.response.data.errors;
+        });
+    }
   },
 };
 </script>
