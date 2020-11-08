@@ -15,16 +15,14 @@
     <p>{{ bid["bid"] }} | User: {{ bid["user"] }}</p>
     </div>
     <br>
-    <br>
-    <br>
-    <h5>Comments:</h5>
+    <h5 class="comment">Comments:</h5>
     <div v-for="comment in car.comments">
     <p>{{ comment["comment"] }} | User: {{comment["user"]}}</p>
     </div>
     <p>Images:</p>
     <div v-for="image in car.images">
     <img v-bind:src="image[`url`]" v-bind:alt="car.model" />
-    <router-link v-if="isLoggedIn()" class="btn btn-primary" v-bind:to="`/images/${image.id}/edit`">Edit image</router-link>
+    <router-link id="edit" v-if="isLoggedIn()" class="btn btn-primary" v-bind:to="`/images/${image.id}/edit`">Edit image</router-link>
     </div>
     <div v-if="isLoggedIn()" class="form-group">
         <label>Comment:</label>
@@ -55,13 +53,14 @@
     max-height: 200px;
     max-width: 400px;
     padding: 1em;
-    /* float: left; */
   }
   .bids {
     padding: 1em;
     float: left;
   }
-
+  .comment {
+    clear: both;
+  }
 </style>
 
 <script>
@@ -100,6 +99,7 @@ export default {
         .then(response => {
           console.log("Bid Create", response);
           this.car.bids.push(response.data);
+          this.car.current_bid = response.data.bid;
           this.newBid = "";
         })
         .catch(error => {
