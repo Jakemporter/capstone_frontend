@@ -30,10 +30,6 @@
         <input type="text" class="form-control" v-model="car.miles">
       </div>
       <div class="form-group">
-        <label>Image URL:</label> 
-        <input type="text" class="form-control" v-model="car.images[0]['url']">
-      </div>
-      <div class="form-group">
         <label>New Image URL:</label>
         <input type="text" class="form-control" v-model="newImage">
       </div>
@@ -92,7 +88,7 @@ export default {
         .then(response => {
           console.log("Image Create", response);
           this.newImage = "";
-          this.$router.push("/cars" + this.car.id);
+          this.$router.push("/cars/" + this.car.id);
         })
         .catch(error => {
           console.log("Image Create Error", error.response);

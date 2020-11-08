@@ -12,7 +12,7 @@
     </div>
     <h5>Bids:</h5>
     <div class="bids" v-for="bid in car.bids">
-    <p>{{ bid["bid"] }}</p>
+    <p>{{ bid["bid"] }} | User: {{ bid["user"] }}</p>
     </div>
     <br>
     <br>
@@ -24,16 +24,8 @@
     <p>Images:</p>
     <div v-for="image in car.images">
     <img v-bind:src="image[`url`]" v-bind:alt="car.model" />
+    <router-link class="btn btn-primary" v-bind:to="`/images/${image.id}/edit`">Edit image</router-link>
     </div>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
     <div class="form-group">
         <label>Comment:</label>
         <input type="text" class="form-control" v-model="newComment">
@@ -61,7 +53,7 @@
     max-height: 200px;
     max-width: 400px;
     padding: 1em;
-    float: left;
+    /* float: left; */
   }
   .bids {
     padding: 1em;

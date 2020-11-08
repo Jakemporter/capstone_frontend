@@ -7,6 +7,7 @@ import CarsEdit from "../views/CarsEdit.vue";
 import Signup from "../views/Signup.vue";
 import Login from "../views/Login.vue";
 import Logout from "../views/Logout.vue";
+import ImagesEdit from "../views/ImagesEdit.vue";
 
 Vue.use(VueRouter);
 
@@ -18,6 +19,7 @@ const routes = [
   { path: "/login", name: "login", component: Login },
   { path: "/logout", name: "logout", component: Logout },
   { path: "/cars/:id/edit", name: "cars-edit", component: CarsEdit},
+  { path: "/images/:id/edit", name: "images-edit", component: ImagesEdit, }
 ];
 
 const router = new VueRouter({
