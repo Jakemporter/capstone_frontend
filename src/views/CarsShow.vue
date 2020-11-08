@@ -22,6 +22,15 @@
     <div v-for="image in car.images">
     <img v-bind:src="image[`url`]" v-bind:alt="car.model" />
     </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     <div class="form-group">
         <label>Comment:</label>
         <input type="text" class="form-control" v-model="newComment">
@@ -49,6 +58,7 @@
     max-height: 200px;
     max-width: 200;
     padding: 1em;
+    float: left;
   }
 </style>
 
