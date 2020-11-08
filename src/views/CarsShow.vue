@@ -56,7 +56,7 @@
 <style>
   img {
     max-height: 200px;
-    max-width: 200;
+    max-width: 400px;
     padding: 1em;
     float: left;
   }
