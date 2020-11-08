@@ -18,6 +18,13 @@
     </div>
 </template>
 
+<style>
+  .card-text {
+    max-height: 200px;
+    overflow: hidden;
+  }
+</style>
+
 <script>
 import axios from "axios";
 export default {
