@@ -6,7 +6,9 @@
         <li v-for="error in errors">{{ error }}</li>
       </ul>
       Url: <input type="text" v-model="image.url" />
-      <input type="submit" value="Update" />
+      <input class="btn btn-primary" type="submit" value="Update" />
+      <br>
+      <button class="btn btn-primary" v-on:click="destroyImage(image)">Destroy Image</button>
     </form>
   </div>
 </template>
@@ -41,6 +43,12 @@ export default {
           console.log("images update error", error.response);
           this.errors = error.response.data.errors;
         });
+    },
+    destroyImage: function(image) {
+      axios.delete("/api/images/" + image.id).then(response => {
+        console.log("images destroy", response);
+        this.$router.push("/cars/" + image.car.id);
+      });
     },
   },
 };

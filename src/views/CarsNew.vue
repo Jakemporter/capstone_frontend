@@ -38,7 +38,7 @@
         <input type="text" class="form-control" v-model="newcarcategoryId">
       </div>
       <br>
-      <input type="submit" value="Create" />
+      <input class="btn btn-primary" type="submit" value="Create" />
     </form>
   </div>
 </template>
