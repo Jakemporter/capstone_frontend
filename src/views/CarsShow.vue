@@ -21,7 +21,6 @@
     <p>Images:</p>
     <div v-for="image in car.images">
     <img v-bind:src="image[`url`]" v-bind:alt="car.model" />
-    <br>
     </div>
     <div class="form-group">
         <label>Comment:</label>
@@ -44,6 +43,15 @@
     <button class="btn btn-primary" v-on:click="destroyCar(car)">Destroy car</button>
   </div>
 </template>
+
+<style>
+  img {
+    max-height: 200px;
+    max-width: 200;
+    padding: 1em;
+  }
+</style>
+
 <script>
 import axios from "axios";
 export default {
