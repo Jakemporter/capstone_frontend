@@ -14,7 +14,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/cars/new">New Car</a>
+            <a v-if="isLoggedIn()" class="nav-link" href="/cars/new">New Car</a>
           </li>
           <li v-if="!isLoggedIn()" class="nav-item">
             <a class="nav-link" href="/signup">Signup</a>

@@ -1,7 +1,6 @@
 <template>
   <div class="cars-show">
-    <h4>{{ car.make }}</h4>
-    <p>{{ car.model }}</p>
+    <h4>{{ car.make }} {{ car.model }}</h4>
     <p>Owner: {{car.username}}</p>
     <p>Color: {{ car.color }}</p>
     <p>Year: {{ car.year }}</p>
