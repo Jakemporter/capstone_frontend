@@ -2,13 +2,15 @@
   <div class="cars-show">
     <h4>{{ car.make }}</h4>
     <p>{{ car.model }}</p>
+    <p>Owner: {{car.username}}</p>
     <p>Color: {{ car.color }}</p>
     <p>Year: {{ car.year }}</p>
     <p>Miles: {{car.miles }}</p>
     <p>Description: {{ car.description }}</p>
     <p>Current Bid: {{ car.current_bid }}</p>
+    <h5>Categories:</h5>
     <div v-for="category in car.categories">
-    <p>Categories: {{ category["name"] }}</p>
+    <p>{{ category["name"] }}</p>
     </div>
     <h5>Bids:</h5>
     <div class="bids" v-for="bid in car.bids">
@@ -19,7 +21,7 @@
     <div v-for="comment in car.comments">
     <p>{{ comment["comment"] }} | User: {{comment["user"]}}</p>
     </div>
-    <p>Images:</p>
+    <h6>Images:</h6>
     <div v-for="image in car.images">
     <img v-bind:src="image[`url`]" v-bind:alt="car.model" />
     <router-link id="edit" v-if="isLoggedIn()" class="btn btn-primary" v-bind:to="`/images/${image.id}/edit`">Edit image</router-link>
