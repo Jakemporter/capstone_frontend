@@ -33,11 +33,17 @@
         <label>New Image URL:</label>
         <input type="text" class="form-control" v-model="newImage">
       </div>
-      <button class="btn btn-primary" v-on:click="createImage()">Add Image</button>
-      <input class="btn btn-primary" type="submit" value="Update" />
+      <button id="button" class="btn btn-primary" v-on:click="createImage()">Add Image</button>
+      <input id="button" class="btn btn-primary" type="submit" value="Update" />
     </form>
   </div>
 </template>
+
+<style>
+  #button {
+    margin: 5px;
+  }
+</style>
 
 <script>
 import axios from "axios";
