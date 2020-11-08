@@ -11,9 +11,12 @@
     <p>Categories: {{ category["name"] }}</p>
     </div>
     <h5>Bids:</h5>
-    <div v-for="bid in car.bids">
+    <div class="bids" v-for="bid in car.bids">
     <p>{{ bid["bid"] }}</p>
     </div>
+    <br>
+    <br>
+    <br>
     <h5>Comments:</h5>
     <div v-for="comment in car.comments">
     <p>{{ comment["comment"] }} | User: {{comment["user"]}}</p>
@@ -60,6 +63,11 @@
     padding: 1em;
     float: left;
   }
+  .bids {
+    padding: 1em;
+    float: left;
+  }
+
 </style>
 
 <script>
