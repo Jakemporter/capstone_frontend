@@ -24,27 +24,29 @@
     <p>Images:</p>
     <div v-for="image in car.images">
     <img v-bind:src="image[`url`]" v-bind:alt="car.model" />
-    <router-link class="btn btn-primary" v-bind:to="`/images/${image.id}/edit`">Edit image</router-link>
+    <router-link v-if="isLoggedIn()" class="btn btn-primary" v-bind:to="`/images/${image.id}/edit`">Edit image</router-link>
     </div>
-    <div class="form-group">
+    <div v-if="isLoggedIn()" class="form-group">
         <label>Comment:</label>
         <input type="text" class="form-control" v-model="newComment">
+        <br>
+        <button class="btn btn-primary" v-on:click="createComment()">Submit Comment</button>
     </div>
-    <button class="btn btn-primary" v-on:click="createComment()">Submit Comment</button>
-    <div class="form-group">
+    <div v-if="isLoggedIn()" class="form-group">
         <label>Create Bid:</label>
         <input type="text" class="form-control" v-model="newBid">
+        <br>
+        <button class="btn btn-primary" v-on:click="createBid()">Submit Bid</button>
     </div>
-    <button class="btn btn-primary" v-on:click="createBid()">Submit Bid</button>
     <ul>
         <li v-for="error in errors">{{ error }}</li>
       </ul>
     <br>
-    <router-link class="btn btn-primary" v-bind:to="`/cars/${car.id}/edit`">Edit car</router-link>
+    <router-link v-if="isLoggedIn()" class="btn btn-primary" v-bind:to="`/cars/${car.id}/edit`">Edit car</router-link>
     <br>
     <router-link class="btn btn-primary" to="/cars">Back to all cars</router-link>
     <br>
-    <button class="btn btn-primary" v-on:click="destroyCar(car)">Destroy car</button>
+    <button v-if="isLoggedIn()" class="btn btn-primary" v-on:click="destroyCar(car)">Destroy car</button>
   </div>
 </template>
 
@@ -122,7 +124,10 @@ export default {
           console.log("Comment Create Error", error.response);
           this.errors = error.response.data.errors;
         });
-    }
+    },
+    isLoggedIn: function () {
+      return localStorage.getItem("jwt");
+    },
   },
 };
 </script>

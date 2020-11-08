@@ -8,7 +8,7 @@
       Url: <input type="text" v-model="image.url" />
       <input class="btn btn-primary" type="submit" value="Update" />
       <br>
-      <button class="btn btn-primary" v-on:click="destroyImage(image)">Destroy Image</button>
+      <button class="btn btn-primary" v-on:click="destroyImage(image)">Delete Image</button>
     </form>
   </div>
 </template>
