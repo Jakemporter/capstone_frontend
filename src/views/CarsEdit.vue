@@ -76,7 +76,7 @@ export default {
         .patch("/api/cars/" + car.id, params)
         .then(response => {
           console.log("cars update", response);
-          this.$router.push("/cars");
+          this.$router.push("/cars/" + car.id);
         })
         .catch(error => {
           console.log("cars update error", error.response);
