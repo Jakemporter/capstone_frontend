@@ -5,12 +5,21 @@
     <p>Color: {{ car.color }}</p>
     <p>Year: {{ car.year }}</p>
     <p>Miles: {{car.miles }}</p>
+    <h5>Current Bid: {{ car.current_bid }}</h5>
     <p>Description: {{ car.description }}</p>
-    <p>Current Bid: {{ car.current_bid }}</p>
     <h5>Categories:</h5>
     <div v-for="category in car.categories">
     <p>{{ category["name"] }}</p>
     </div>
+
+
+
+
+
+
+
+
+    
     <h5>Bids:</h5>
     <div class="bids" v-for="bid in car.bids">
     <p>{{ bid["bid"] }} | User: {{ bid["user"] }}</p>
