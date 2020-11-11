@@ -10,15 +10,22 @@
       <br>
       <button class="btn btn-primary" v-on:click="destroyImage(image)">Delete Image</button>
     </form>
+    <router-link id="button" class="btn btn-primary" v-bind:to="`/cars/${image.car.id}`">Go back</router-link>
   </div>
 </template>
+
+<style>
+  #button {
+    margin: 5px;
+  }
+</style>
 
 <script>
 import axios from "axios";
 export default {
   data: function() {
     return {
-      image: {},
+      image: { car: []},
       errors: [],
     };
   },

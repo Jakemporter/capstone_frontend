@@ -35,6 +35,7 @@
       </div>
       <button id="button" class="btn btn-primary" v-on:click="createImage()">Add Image</button>
       <input id="button" class="btn btn-primary" type="submit" value="Update" />
+      <router-link id="button" class="btn btn-primary" v-bind:to="`/cars/${car.id}`">Go back</router-link>
     </form>
   </div>
 </template>
