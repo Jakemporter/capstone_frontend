@@ -5,30 +5,40 @@
     <p>Color: {{ car.color }}</p>
     <p>Year: {{ car.year }}</p>
     <p>Miles: {{car.miles }}</p>
-    <h5>Current Bid: {{ car.current_bid }}</h5>
     <p>Description: {{ car.description }}</p>
     <h5>Categories:</h5>
     <div v-for="category in car.categories">
     <p>{{ category["name"] }}</p>
     </div>
+    <h5>Current Bid: {{ car.current_bid }}</h5>
 
-
-
-
-
-
-
-
-    
-    <h5>Bids:</h5>
-    <div class="bids" v-for="bid in car.bids">
-    <p>{{ bid["bid"] }} | User: {{ bid["user"] }}</p>
+      <p>
+  <a class="btn btn-primary" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">View Previous Bids</a>
+  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">View Comments</button>
+</p>
+<div class="row">
+  <div class="col">
+    <div class="collapse multi-collapse" id="multiCollapseExample1">
+      <div class="card card-body">
+        <div class="bids" v-for="bid in car.bids">
+        <p>{{ bid["bid"] }} | User: {{ bid["user"] }}</p>
+        </div>
+      </div>
     </div>
-    <br>
-    <h5 class="comment">Comments:</h5>
-    <div v-for="comment in car.comments">
-    <p>{{ comment["comment"] }} | User: {{comment["user"]}}</p>
+  </div>
+  <div class="col">
+    <div class="collapse multi-collapse" id="multiCollapseExample2">
+      <div class="card card-body">
+      <div v-for="comment in car.comments">
+      <p>{{ comment["comment"] }} | User: {{comment["user"]}}</p>
+      </div>
+      </div>
     </div>
+  </div>
+</div>
+
+
+
     <h6>Images:</h6>
     <div v-for="image in car.images">
     <img v-bind:src="image[`url`]" v-bind:alt="car.model" />
@@ -64,9 +74,10 @@
     max-width: 400px;
     padding: 1em;
   }
-  .bids {
+  .bid {
     padding: 1em;
-    float: left;
+    float: lefy;
+    margin: 5px;
   }
   .comment {
     clear: both;
