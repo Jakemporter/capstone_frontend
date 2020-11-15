@@ -6,39 +6,86 @@
     <p>Year: {{ car.year }}</p>
     <p>Miles: {{car.miles }}</p>
     <p>Description: {{ car.description }}</p>
+    <p>VIN: {{ car.VIN }}</p>
     <h5>Categories:</h5>
     <div v-for="category in car.categories">
     <p>{{ category["name"] }}</p>
     </div>
-    <h5>Highest Bidder: {{ car.username }} Bid: {{ car.current_bid }} </h5>
 
-      <p>
-  <a class="btn btn-primary" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">View Previous Bids</a>
-  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">View Comments</button>
-</p>
-<div class="row">
-  <div class="col">
-    <div class="collapse multi-collapse" id="multiCollapseExample1">
-      <div class="card card-body">
+    <div class="accordion" id="accordionExample">
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h2 class="mb-0">
+        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Comments:
+        </button>
+      </h2>
+    </div>
+
+    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+      <div class="card-body">
+        <div v-for="comment in car.comments">
+        <p>{{ comment["comment"] }} | User: {{comment["user"]}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingTwo">
+      <h2 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Bids:
+        </button>
+      </h2>
+    </div>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+      <div class="card-body">
         <div class="bids" v-for="bid in car.bids">
         <p>{{ bid["bid"] }} | User: {{ bid["user"] }}</p>
         </div>
       </div>
     </div>
   </div>
-  <div class="col">
-    <div class="collapse multi-collapse" id="multiCollapseExample2">
-      <div class="card card-body">
-      <div v-for="comment in car.comments">
-      <p>{{ comment["comment"] }} | User: {{comment["user"]}}</p>
-      </div>
+  <div class="card">
+    <div class="card-header" id="headingThree">
+      <h2 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          More Info From Car VIN
+        </button>
+      </h2>
+    </div>
+    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+      <div class="card-body">
+        
+        <p>Engine: {{ car.engine }} </p>
+        <p>Engine Cylinders: {{ car.engine_cylinders }}</p>
+        <p>Transmission: {{ car.transmission }}</p>
+        <p>DriveTrain: {{ car.drivetrain }}</p>
+        <p>Trim: {{ car.trim }}</p>
+        <p>Doors: {{ car.doors }}</p>
+        <p>Standard Towing: {{ car.standard_towing }}</p>
+        <p>Maximum Towing: {{ car.maximum_towing }}</p>
+        <p>Cargo Volume: {{ car.cargo_volume }}</p>
+        <p>City MPG: {{ car.city_mileage }}</p>
+        <p>Highway MPG: {{ car.highway_mileage }}</p>
+        <p>Fuel Type: {{ car.fuel_type }}</p>
+        <p>Fuel Tank: {{ car.fuel_capacity }}</p>
+        <p>Seating: {{ car.standard_seating }}</p>
+        <p>Curb Weight: {{ car.curb_weight }}</p>
+        <p>Original MSRP: {{ car.original_msrp }}</p>
+        <p>Made In: {{ car.made_in }}</p>
+        <h5>Size:</h5>
+        <p>   Height: {{ car.overall_height }}</p>
+        <p>   Width: {{ car.overall_width }}</p>
+        <p>   Length: {{ car.overall_length }}</p>
+
       </div>
     </div>
   </div>
 </div>
 
 
-
+    <h5>Highest Bidder: {{ car.username }} Bid: {{ car.current_bid }} </h5>
     <h6>Images:</h6>
     <div v-for="image in car.images">
     <img v-bind:src="image[`url`]" v-bind:alt="car.model" />
