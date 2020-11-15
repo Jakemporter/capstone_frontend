@@ -2,9 +2,6 @@
   <div class="cars-edit">
     <h1>Edit Car</h1>
     <form v-on:submit.prevent="updateCar(car)">
-      <ul>
-        <li v-for="error in errors">{{ error }}</li>
-      </ul>
         <div class="form-group">
         <label>Make:</label> 
         <input type="text" class="form-control" v-model="car.make">
@@ -26,9 +23,16 @@
         <input type="text" class="form-control" v-model="car.description">
       </div>
       <div class="form-group">
+        <label>VIN:</label> 
+        <input type="text" class="form-control" v-model="car.VIN">
+      </div>
+      <div class="form-group">
         <label>Miles:</label> 
         <input type="text" class="form-control" v-model="car.miles">
       </div>
+      <ul>
+        <li v-for="error in errors">{{ error }}</li>
+      </ul>
       <div class="form-group">
         <label>New Image URL:</label>
         <input type="text" class="form-control" v-model="newImage">
@@ -71,7 +75,9 @@ export default {
         year: car.year,
         miles: car.miles,
         description: car.description,
-        url: car.images[0]["url"]
+        VIN: car.VIN,
+        url: car.images[0]["url"],
+        errors: []
       };
       axios
         .patch("/api/cars/" + car.id, params)
