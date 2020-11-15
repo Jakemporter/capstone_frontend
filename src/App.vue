@@ -30,9 +30,9 @@
       </div>
     </div>
   </nav>
-  <div class="view" style="background-image: url('https://mdbootstrap.com/img/Photos/Others/architecture.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
-  </div>
-  
+  <!-- <div class="view" style="background-image: url('https://mdbootstrap.com/img/Photos/Others/architecture.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+  </div> -->
+
   <div class="container">
     <router-view/>
   </div>

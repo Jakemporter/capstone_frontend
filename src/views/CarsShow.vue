@@ -10,7 +10,7 @@
     <div v-for="category in car.categories">
     <p>{{ category["name"] }}</p>
     </div>
-    <h5>Current Bid: {{ car.current_bid }}</h5>
+    <h5>Highest Bidder: {{ car.username }} Bid: {{ car.current_bid }} </h5>
 
       <p>
   <a class="btn btn-primary" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">View Previous Bids</a>
