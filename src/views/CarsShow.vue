@@ -123,7 +123,7 @@
   }
   .bid {
     padding: 1em;
-    float: lefy;
+    float: left;
     margin: 5px;
   }
   .comment {
@@ -168,7 +168,6 @@ export default {
           console.log("Bid Create", response);
           this.car.bids.push(response.data);
           this.car.current_bid = response.data.bid;
-          this.car.current_bid = response.data.user;
           this.newBid = "";
         })
         .catch(error => {
