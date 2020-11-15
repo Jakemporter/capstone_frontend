@@ -34,6 +34,10 @@
         <input type="text" class="form-control" v-model="newcarUrl">
       </div>
       <div class="form-group">
+        <label>VIN:</label> 
+        <input type="text" class="form-control" v-model="newcarVin">
+      </div>
+      <div class="form-group">
         <label>Category ID:</label> 
         <input type="text" class="form-control" v-model="newcarcategoryId">
       </div>
@@ -55,6 +59,7 @@ export default {
       newcarDescription: "",
       newcarMiles: "",
       newcarUrl: "",
+      newcarVin: "",
       newcarcategoryId: "",
       errors: [],
     };
@@ -70,6 +75,7 @@ export default {
         description: this.newcarDescription,
         miles: this.newcarMiles,
         image_url: this.newcarUrl,
+        VIN: this.newcarVin,
         category_id: this.newcarcategoryId,
       };
       axios
