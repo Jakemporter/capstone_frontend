@@ -3,7 +3,7 @@
     <h1>All Cars</h1>
     <div class="row">
     <div v-for="car in cars" class="col-lg-3 col-md-6 mb-4">
-        <div class="card h-100">
+        <div v-if=!car.expired class="card h-100">
           <img class="card-img-top" v-bind:src="car.images[0][`url`]" alt="">
           <div class="card-body">
             <h5 class="card-title">{{ car.make }} {{ car.model }}</h5>
@@ -30,9 +30,6 @@
     max-height: 125px;
     overflow: scroll;
   }
-  /* .card-img-top {
-    height: 180px;
-  } */
 </style>
 
 <script>

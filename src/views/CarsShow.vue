@@ -1,6 +1,7 @@
 <template>
   <div class="cars-show">
     <h4>{{ car.make }} {{ car.model }}</h4>
+    <p>Expired? {{ car.expired }}</p>
     <p>Owner: {{car.username}}</p>
     <p>Color: {{ car.color }}</p>
     <p>Year: {{ car.year }}</p>
@@ -85,7 +86,7 @@
   </div>
 </div>
 
-
+  <br>
     <h6>Images:</h6>
     <div v-for="image in car.images">
     <img v-bind:src="image[`url`]" v-bind:alt="car.model" />

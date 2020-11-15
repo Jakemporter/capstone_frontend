@@ -1,11 +1,12 @@
 <template>
   <div class="bids-index">
-    <h1>All Bids</h1>
+    <h1>All Your Bids</h1>
     <div class="bid" v-for="bid in bids">
       <p>ID: {{ bid.id }}</p>
       <p>Bid: {{ bid.bid }}</p>
       <p>Make: {{ bid.car_make }}</p>
       <p>Model: {{ bid.car_model }}</p>
+      <p>Expired? {{ bid.expired }}</p>
       <img :src="bid.image" alt="">
     </div>
     <div class="end"></div>

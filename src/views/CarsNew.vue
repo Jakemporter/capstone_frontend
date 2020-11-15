@@ -41,6 +41,7 @@
         <label>Category ID:</label> 
         <input type="text" class="form-control" v-model="newcarcategoryId">
       </div>
+      <h5>Auctions expire after 2 weeks</h5>
       <br>
       <input class="btn btn-primary" type="submit" value="Create" />
     </form>
