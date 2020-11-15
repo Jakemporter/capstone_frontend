@@ -11,6 +11,7 @@
     <div v-for="category in car.categories">
     <p>{{ category["name"] }}</p>
     </div>
+    <h5>Current Bid: {{ car.current_bid }} </h5>
 
     <div class="accordion" id="accordionExample">
   <div class="card">
@@ -34,7 +35,7 @@
     <div class="card-header" id="headingTwo">
       <h2 class="mb-0">
         <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          Bids:
+          Previous Bids:
         </button>
       </h2>
     </div>
@@ -85,7 +86,6 @@
 </div>
 
 
-    <h5>Highest Bidder: {{ car.username }} Bid: {{ car.current_bid }} </h5>
     <h6>Images:</h6>
     <div v-for="image in car.images">
     <img v-bind:src="image[`url`]" v-bind:alt="car.model" />
@@ -168,6 +168,7 @@ export default {
           console.log("Bid Create", response);
           this.car.bids.push(response.data);
           this.car.current_bid = response.data.bid;
+          this.car.current_bid = response.data.user;
           this.newBid = "";
         })
         .catch(error => {
