@@ -83,6 +83,7 @@ export default {
         .post("/api/cars", params)
         .then(response => {
           console.log("cars create", response);
+          this.$parent.flashMessage = "Car Added!";
           this.$router.push("/cars");
         })
         .catch(error => {

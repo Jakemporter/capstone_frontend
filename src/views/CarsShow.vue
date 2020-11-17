@@ -154,6 +154,7 @@ export default {
     destroyCar: function(car) {
       axios.delete("/api/cars/" + car.id).then(response => {
         console.log("cars destroy", response);
+        this.$parent.flashMessage = "Car Deleted!";
         this.$router.push("/cars");
       });
     },
