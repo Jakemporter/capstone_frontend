@@ -15,6 +15,7 @@
             <p class="card-text">Miles: {{ car.miles}}</p>
             <p class="card-text">Current Bid: {{ car.current_bid }}</p>
             <p class="card-text">Color: {{ car.color}}</p>
+            <p class="card-text">Expires: {{ car.expires}}</p>
             <p>Categories: </p>
             <div v-for="category in car.categories">
               <p class="card-text">{{ category.name}}</p>
