@@ -8,8 +8,11 @@
           <div class="card-body">
             <h5 class="card-title">Your Bid: {{ bid.bid }}</h5>
             <h6 class="card-text">Car: {{bid.car_make }} {{ bid.car_model }} </h6>
-            <p class="card-text">Expired?: {{ bid.expired }}</p>
+            <p class="card-text">Expires: {{ bid.expires }}</p>
             <p class="card-text">Highest Bid?: {{ bid.highest }}</p>
+          </div>
+          <div class="card-footer">
+            <a :href="`/cars/${bid.car_id}`" class="btn btn-primary">Go To Car</a>
           </div>
       </div>
     </div>

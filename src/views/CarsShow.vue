@@ -1,7 +1,7 @@
 <template>
   <div class="cars-show">
     <h4>{{ car.make }} {{ car.model }}</h4>
-    <p>Expired? {{ car.expired }}</p>
+    <p>Expires: {{ car.expires }}</p>
     <p>Owner: {{car.username}}</p>
     <p>Color: {{ car.color }}</p>
     <p>Year: {{ car.year }}</p>
