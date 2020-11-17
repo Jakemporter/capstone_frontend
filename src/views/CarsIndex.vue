@@ -6,7 +6,7 @@
         <option v-for="car in cars"> {{car.make }}</option>
       </datalist>
     <div class="row">
-    <div v-for="car in filterBy(cars, searchFilter, 'make', 'model')" v-bind:key="car.id" class="col-lg-3 col-md-6 mb-4">
+    <div v-for="car in filterBy(cars, searchFilter, 'make', 'model', 'categories')" v-bind:key="car.id" class="col-lg-3 col-md-6 mb-4">
         <div v-if=!car.expired class="card h-100">
           <img class="card-img-top" v-bind:src="car.images[0][`url`]" alt="">
           <div class="card-body">
