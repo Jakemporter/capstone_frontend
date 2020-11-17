@@ -1,8 +1,12 @@
 <template>
   <div class="cars-index">
     <h1>All Cars</h1>
+    Search: <input type="text" v-model="searchFilter" list="cars-make">
+      <datalist id="cars-make">
+        <option v-for="car in cars"> {{car.make }}</option>
+      </datalist>
     <div class="row">
-    <div v-for="car in cars" class="col-lg-3 col-md-6 mb-4">
+    <div v-for="car in filterBy(cars, searchFilter, 'make', 'model')" v-bind:key="car.id" class="col-lg-3 col-md-6 mb-4">
         <div v-if=!car.expired class="card h-100">
           <img class="card-img-top" v-bind:src="car.images[0][`url`]" alt="">
           <div class="card-body">
@@ -34,9 +38,13 @@
 
 <script>
 import axios from "axios";
+import Vue2Filters from "vue2-filters";
 export default {
+  mixins: [Vue2Filters.mixin],
+  name: "CarsIndex",
   data: function() {
     return {
+      searchFilter: "",
       cars: [],
     };
   },
