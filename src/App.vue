@@ -41,6 +41,7 @@
   </div>
       <footer class="py-5 bg-dark">
     <div class="container">
+      <div class="alert alert-success" v-if="flashMessage" v-on:click="flashMessage = ''">{{ flashMessage }}</div>
       <p class="m-0 text-center text-white">Copyright &copy; Car Auction 2020</p>
     </div>
     <!-- /.container -->
@@ -56,6 +57,11 @@
 
 <script>
 export default {
+  data: function () {
+    return {
+      flashMessage: "",
+    };
+  },
   methods: {
     isLoggedIn: function () {
       return localStorage.getItem("jwt");
