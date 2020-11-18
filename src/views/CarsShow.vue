@@ -78,7 +78,10 @@
           </h2>
         </div>
         <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-          <div class="card-body">
+          <div v-if="loading" class="card-body">
+            <h3>Loading Data, Please be patient.</h3>
+          </div>
+          <div v-if="!loading" class="card-body">
             <div v-if="car_vin.auction_values">
               <h5>Current Auction Values:</h5>
               <p>Low Auction Value: {{ car_vin.auction_values["lowAuctionValue"] }}</p>
@@ -184,7 +187,6 @@ export default {
         console.log("Cars Show", response);
         console.log("Lots of data. Please be patient.");
         this.car = response.data;
-        this.loading = false;
       })
       .catch(error => {
         console.log("photos create error", error.response);
