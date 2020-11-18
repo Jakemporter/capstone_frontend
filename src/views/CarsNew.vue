@@ -38,8 +38,8 @@
         <input type="text" class="form-control" v-model="newcarVin" />
       </div>
       <div class="form-group">
-        <label>Category ID:</label>
-        <select v-model="newcarCategoryId" class="form-control">
+        <label>Category:</label>
+        <select v-model="newcarcategoryId" class="form-control">
           <option v-for="category in categories" v-bind:value="category.id">{{ category.name }}</option>
         </select>
       </div>
@@ -64,10 +64,15 @@ export default {
       newcarUrl: "",
       newcarVin: "",
       newcarcategoryId: "",
+      categories: [],
       errors: [],
     };
   },
-  created: function() {},
+  created: function() {
+    axios.get("/api/categories").then(response => {
+      this.categories = response.data;
+    });
+  },
   methods: {
     createCar: function() {
       var params = {
