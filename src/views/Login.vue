@@ -18,12 +18,6 @@
   </div>
 </template>
 
-<style>
-#white {
-  color: white;
-}
-</style>
-
 <script>
 import axios from "axios";
 

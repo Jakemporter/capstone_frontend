@@ -40,9 +40,6 @@
   max-height: 125px;
   overflow: scroll;
 }
-#white {
-  color: white;
-}
 </style>
 
 <script>
