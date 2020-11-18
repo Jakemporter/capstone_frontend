@@ -23,17 +23,8 @@
   </div>
   </div>
 
-
 </template>
 
-<style>
-  #green {
-    color: green;
-  }
-  #red{
-    color: red;
-  }
-</style>
 
 <script>
 import axios from "axios";
