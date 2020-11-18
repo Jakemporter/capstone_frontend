@@ -94,7 +94,7 @@
             <p>Engine: {{ car_vin.engine }}</p>
             <p>Engine Cylinders: {{ car_vin.engine_cylinders }}</p>
             <p>Transmission: {{ car_vin.transmission }}</p>
-            <p>DriveTrain: {{ car_vin.drivetrain }}</p>
+            <p>Drive Train: {{ car_vin.drivetrain }}</p>
             <p>Trim: {{ car_vin.trim }}</p>
             <p>Doors: {{ car_vin.doors }}</p>
             <p>Standard Towing: {{ car_vin.standard_towing }}</p>
@@ -137,6 +137,7 @@
       <input type="text" class="form-control" v-model="newBid" />
       <br />
       <button class="btn btn-primary" v-on:click="createBid()">Submit Bid</button>
+      <div class="alert alert-success" v-if="flashMessage" v-on:click="flashMessage = ''">{{ flashMessage }}</div>
     </div>
     <ul>
       <li v-for="error in errors">{{ error }}</li>
@@ -178,6 +179,7 @@ export default {
       newComment: "",
       errors: [],
       loading: true,
+      flashMessage: "",
     };
   },
   created: function() {
@@ -224,6 +226,7 @@ export default {
           this.car.bids.push(response.data);
           this.car.current_bid = response.data.bid;
           this.newBid = "";
+          this.flashMessage = "Bid Created!";
         })
         .catch(error => {
           console.log("Bid Create Error", error.response);
@@ -242,6 +245,7 @@ export default {
           console.log("Comment Create", response);
           this.car.comments.push(response.data);
           this.newComment = "";
+          this.flashMessage = "Comment Created!";
         })
         .catch(error => {
           console.log("Comment Create Error", error.response);
