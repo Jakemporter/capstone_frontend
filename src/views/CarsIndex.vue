@@ -24,10 +24,10 @@
           <div class="card-footer">
             <a :href="`/cars/${car.id}`" class="btn btn-primary">Find Out More!</a>
           </div>
+          </div>
         </div>
       </div>
   </div>
-    </div>
 </template>
 
 <style>
