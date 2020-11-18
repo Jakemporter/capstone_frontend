@@ -1,5 +1,5 @@
 <template>
-  <div class="login">
+  <div id="white" class="login">
     <form v-on:submit.prevent="submit()">
       <h1>Login</h1>
       <ul>
@@ -7,16 +7,22 @@
       </ul>
       <div class="form-group">
         <label>Email:</label>
-        <input type="email" class="form-control" v-model="email">
+        <input type="email" class="form-control" v-model="email" />
       </div>
       <div class="form-group">
         <label>Password:</label>
-        <input type="password" class="form-control" v-model="password">
+        <input type="password" class="form-control" v-model="password" />
       </div>
-      <input type="submit" class="btn btn-primary" value="Submit">
+      <input type="submit" class="btn btn-primary" value="Submit" />
     </form>
   </div>
 </template>
+
+<style>
+#white {
+  color: white;
+}
+</style>
 
 <script>
 import axios from "axios";
@@ -26,20 +32,19 @@ export default {
     return {
       email: "",
       password: "",
-      errors: []
+      errors: [],
     };
   },
   methods: {
     submit: function() {
       var params = {
         email: this.email,
-        password: this.password
+        password: this.password,
       };
       axios
         .post("/api/sessions", params)
         .then(response => {
-          axios.defaults.headers.common["Authorization"] =
-            "Bearer " + response.data.jwt;
+          axios.defaults.headers.common["Authorization"] = "Bearer " + response.data.jwt;
           localStorage.setItem("jwt", response.data.jwt);
           this.$parent.flashMessage = "Login successful!";
           this.$router.push("/cars");
@@ -49,7 +54,7 @@ export default {
           this.email = "";
           this.password = "";
         });
-    }
-  }
+    },
+  },
 };
 </script>

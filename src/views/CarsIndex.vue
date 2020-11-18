@@ -1,7 +1,7 @@
 <template>
   <div class="cars-index">
-    <h1>All Cars</h1>
-    Search:
+    <h1 id="white">All Cars</h1>
+    <h6 id="white">Search:</h6>
     <input type="text" v-model="searchFilter" list="cars-make" />
     <datalist id="cars-make">
       <option v-for="car in cars">{{ car.make }}</option>
@@ -39,6 +39,9 @@
 .card-text {
   max-height: 125px;
   overflow: scroll;
+}
+#white {
+  color: white;
 }
 </style>
 
