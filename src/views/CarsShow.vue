@@ -191,7 +191,7 @@ export default {
         this.car = response.data;
       })
       .catch(error => {
-        console.log("photos create error", error.response);
+        console.log("Car Show Error", error.response);
       });
     axios
       .get("/api/cars_vin/" + this.$route.params.id)
@@ -202,7 +202,7 @@ export default {
         this.loading = false;
       })
       .catch(error => {
-        console.log("photos create error", error.response);
+        console.log("VIN Data Error", error.response);
       });
   },
   methods: {
