@@ -14,10 +14,6 @@
     </div>
     <h5>Current Bid: {{ car.current_bid }}</h5>
 
-    <div v-if="loading">
-      <h1>Lots of data. Please be patient</h1>
-    </div>
-
     <div class="accordion" id="accordionExample">
       <div class="card">
         <div class="card-header" id="headingOne">
@@ -83,13 +79,13 @@
         </div>
         <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
           <div class="card-body">
-            <div>
-              <h5>Current Auction Values (if available):</h5>
+            <div v-if="car_vin.auction_values">
+              <h5>Current Auction Values:</h5>
               <p>Low Auction Value: {{ car_vin.auction_values["lowAuctionValue"] }}</p>
               <p>Average Auction Value: {{ car_vin.auction_values["averageAuctionValue"] }}</p>
               <p>High Auction Value: {{ car_vin.auction_values["highAuctionValue"] }}</p>
+              <p>==============================================</p>
             </div>
-            <p>==============================================</p>
             <h5>Vehicle Info</h5>
             <p>Avgerage Trade In Value: {{ car_vin.avg_trade_in }}</p>
             <p>Engine: {{ car_vin.engine }}</p>
