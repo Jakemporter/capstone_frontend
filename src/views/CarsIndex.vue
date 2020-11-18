@@ -18,9 +18,9 @@
             <h5 class="card-title">{{ car.make }} {{ car.model }}</h5>
             <p class="card-text">Year: {{ car.year }}</p>
             <p class="card-text">Miles: {{ car.miles }}</p>
-            <p class="card-text">Current Bid: {{ car.current_bid }}</p>
+            <h6 class="card-text">Current Bid: {{ car.current_bid }}</h6>
             <p class="card-text">Color: {{ car.color }}</p>
-            <p class="card-text">Time Left: {{ car.time_left }}</p>
+            <h6 class="card-text">Time Left: {{ car.time_left }}</h6>
             <p>Categories:</p>
             <div v-for="category in car.categories">
               <p class="card-text">{{ category.name }}</p>
