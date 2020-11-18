@@ -147,6 +147,7 @@ export default {
   created: function() {
     axios.get("/api/cars/" + this.$route.params.id).then(response => {
       console.log("Cars Show", response);
+      console.log("Lots of data. Please be patient.");
       this.car = response.data;
     });
   },

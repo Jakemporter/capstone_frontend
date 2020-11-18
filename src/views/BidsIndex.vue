@@ -4,7 +4,8 @@
     <div class="row">
     <div v-for="bid in bids" class="col-lg-3 col-md-6 mb-4">
       <div class="card h-100">
-          <div v-if=!bid.highest class="card bg-danger text-white">
+          <div v-bind:class="{'card bg-success text-white': bid.highest}">
+          <div v-bind:class="{'card bg-danger text-white': !bid.highest}">
           <img class="card-img-top" v-bind:src="bid.image" alt="">
           <div class="card-body">
             <h5 class="card-title">Your Bid: {{ bid.bid }}</h5>
@@ -19,6 +20,7 @@
           </div>
       </div>
     </div>
+  </div>
   </div>
 
 
