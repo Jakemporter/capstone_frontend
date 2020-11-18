@@ -58,7 +58,13 @@
     </div>
     <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
       <div class="card-body">
-        
+        <h5>Current Auction Values (if available):</h5>
+        <p>Low Auction Value: {{car.auction_values["lowAuctionValue"]}}</p>
+        <p>Average Auction Value: {{car.auction_values["averageAuctionValue"]}}</p>
+        <p>High Auction Value: {{car.auction_values["highAuctionValue"]}}</p>
+        <p>==============================================</p>
+        <h5>Vehicle Info</h5>
+        <p>Avgerage Trade In Value: {{ car.avg_trade_in }}</p>
         <p>Engine: {{ car.engine }} </p>
         <p>Engine Cylinders: {{ car.engine_cylinders }}</p>
         <p>Transmission: {{ car.transmission }}</p>
@@ -76,6 +82,7 @@
         <p>Curb Weight: {{ car.curb_weight }}</p>
         <p>Original MSRP: {{ car.original_msrp }}</p>
         <p>Made In: {{ car.made_in }}</p>
+        <p>==============================================</p>
         <h5>Size:</h5>
         <p>   Height: {{ car.overall_height }}</p>
         <p>   Width: {{ car.overall_width }}</p>
@@ -137,7 +144,7 @@ import axios from "axios";
 export default {
   data: function() {
     return {
-      car: {images: [{}], comments: [{}], bids: [{}], categories: [{}]},
+      car: {images: [{}], comments: [{}], bids: [{}], categories: [{}], auction_values:[]},
       bid: [],
       newBid: "",
       newComment: "",
