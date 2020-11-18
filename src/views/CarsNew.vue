@@ -6,43 +6,45 @@
         <li v-for="error in errors">{{ error }}</li>
       </ul>
       <div class="form-group">
-        <label>Make:</label> 
-        <input type="text" class="form-control" v-model="newcarMake">
+        <label>Make:</label>
+        <input type="text" class="form-control" v-model="newcarMake" />
       </div>
       <div class="form-group">
-        <label>Model:</label> 
-        <input type="text" class="form-control" v-model="newcarModel">
+        <label>Model:</label>
+        <input type="text" class="form-control" v-model="newcarModel" />
       </div>
       <div class="form-group">
-        <label>Color:</label> 
-        <input type="text" class="form-control" v-model="newcarColor">
+        <label>Color:</label>
+        <input type="text" class="form-control" v-model="newcarColor" />
       </div>
       <div class="form-group">
-        <label>Year:</label> 
-        <input type="text" class="form-control" v-model="newcarYear">
+        <label>Year:</label>
+        <input type="text" class="form-control" v-model="newcarYear" />
       </div>
       <div class="form-group">
-        <label>Description:</label> 
-        <input type="text" class="form-control" v-model="newcarDescription">
+        <label>Description:</label>
+        <input type="text" class="form-control" v-model="newcarDescription" />
       </div>
       <div class="form-group">
-        <label>Miles:</label> 
-        <input type="text" class="form-control" v-model="newcarMiles">
+        <label>Miles:</label>
+        <input type="text" class="form-control" v-model="newcarMiles" />
       </div>
       <div class="form-group">
-        <label>Image Url:</label> 
-        <input type="text" class="form-control" v-model="newcarUrl">
+        <label>Image Url:</label>
+        <input type="text" class="form-control" v-model="newcarUrl" />
       </div>
       <div class="form-group">
-        <label>VIN:</label> 
-        <input type="text" class="form-control" v-model="newcarVin">
+        <label>VIN:</label>
+        <input type="text" class="form-control" v-model="newcarVin" />
       </div>
       <div class="form-group">
-        <label>Category ID:</label> 
-        <input type="text" class="form-control" v-model="newcarcategoryId">
+        <label>Category ID:</label>
+        <select v-model="newcarCategoryId" class="form-control">
+          <option v-for="category in categories" v-bind:value="category.id">{{ category.name }}</option>
+        </select>
       </div>
       <h5>Auctions expire after 2 weeks</h5>
-      <br>
+      <br />
       <input class="btn btn-primary" type="submit" value="Create" />
     </form>
   </div>
