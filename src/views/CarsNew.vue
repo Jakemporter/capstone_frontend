@@ -55,10 +55,10 @@ import axios from "axios";
 export default {
   data: function() {
     return {
-      newcarMake: "",
-      newcarModel: "",
+      newcarMake: null,
+      newcarModel: null,
       newcarColor: "",
-      newcarYear: "",
+      newcarYear: null,
       newcarDescription: "",
       newcarMiles: "",
       newcarUrl: "",
@@ -97,6 +97,24 @@ export default {
           console.log("cars create error", error.response);
           this.errors = error.response.data.errors;
         });
+    },
+    checkForm: function(e) {
+      if (this.make && this.model && this.year) {
+        return true;
+      }
+      this.errors = [];
+
+      if (!this.make) {
+        this.errors.push("Make Required");
+      }
+      if (!this.model) {
+        this.errors.push("Model Required");
+      }
+      if (!this.year) {
+        this.errors.push("Year Required");
+      }
+
+      e.preventDefault();
     },
   },
 };
