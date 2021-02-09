@@ -1,7 +1,7 @@
 <template>
-  <div class="photos-new">
+  <div class="cars-new">
     <h1>New Car</h1>
-    <form v-on:submit.prevent="createCar()">
+    <form v-on:submit.prevent="createCar()" @submit="checkForm">
       <ul>
         <li v-for="error in errors">{{ error }}</li>
       </ul>
@@ -43,9 +43,16 @@
           <option v-for="category in categories" v-bind:value="category.id">{{ category.name }}</option>
         </select>
       </div>
+      <p v-if="errors.length">
+          <b>Please correct the following error(s):</b>
+            <ul>
+              <li v-for="error in errors">{{ error }}</li>
+            </ul>
+      </p>
+      <br>
       <h5>Auctions expire after 2 weeks</h5>
-      <br />
-      <input class="btn btn-primary" type="submit" value="Create" />
+      <br>
+      <input class="btn btn-primary" type="submit" value="Submit" />
     </form>
   </div>
 </template>
@@ -55,10 +62,10 @@ import axios from "axios";
 export default {
   data: function() {
     return {
-      newcarMake: null,
-      newcarModel: null,
+      newcarMake: "",
+      newcarModel: "",
       newcarColor: "",
-      newcarYear: null,
+      newcarYear: "",
       newcarDescription: "",
       newcarMiles: "",
       newcarUrl: "",
@@ -103,17 +110,17 @@ export default {
         return true;
       }
       this.errors = [];
-
-      if (!this.make) {
+      
+      if (!this.newcarMake) {
         this.errors.push("Make Required");
       }
-      if (!this.model) {
+      if (!this.newcarModel) {
         this.errors.push("Model Required");
       }
-      if (!this.year) {
+      if (!this.newcarYear) {
         this.errors.push("Year Required");
       }
-
+      
       e.preventDefault();
     },
   },
